@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import MainForm from './components/Form/MainForm';
 import Header from './components/Header' 
+import Steper from './components/Stepper/Steper'
 
 function App() {
   return (
   <div>
     <Header />
-    <MainForm />
+    <Steper />
   </div>
   );
 }
