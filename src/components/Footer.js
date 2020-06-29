@@ -1,8 +1,6 @@
 import React from 'react'
-import {AppBar, Toolbar, Typography, Link, BottomNavigation} from '@material-ui/core'
+import {Toolbar, Typography, Link, BottomNavigation} from '@material-ui/core'
 import { makeStyles }  from '@material-ui/core/styles'
-import  {pink}  from '@material-ui/core/colors'
-import createSpacing from '@material-ui/core/styles/createSpacing'
 
 export default function Footer() {
     const useStyles = makeStyles((theme)=>({

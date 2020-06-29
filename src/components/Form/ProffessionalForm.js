@@ -71,8 +71,8 @@ export default function ProffessionalForm({ handleChange, values, step }) {
               />
               <FormControlLabel value="Pro" control={<Radio />} label="Pro" />
             </RadioGroup>
-            {values.experience != "" ? (
-              <Grow in={values.experience != ""}>
+            {values.experience !== "" ? (
+              <Grow in={values.experience !== ""}>
                 <RadioGroup
                   className={styles.lastRow}
                   onChange={handleChange("stage")}
