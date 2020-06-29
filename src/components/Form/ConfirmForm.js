@@ -5,6 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     paddingBottom: "4%",
+    width: "95%",
+    margin:'0 auto',
   },
   form: {
     padding: "10px",

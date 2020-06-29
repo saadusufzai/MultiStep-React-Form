@@ -5,6 +5,7 @@ import Steper from './components/Stepper/Steper'
 import { Grid } from '@material-ui/core';
 
 function App() {
+  
   const [data, setData] = useState({
     firstName:'',
     lastName:'',
@@ -20,8 +21,7 @@ function App() {
     setData({...data, [input]: e.target.value });
   };
 
-  const  { firstName, lastName, email, field, proffession,experties} = data
-  const values = { firstName, lastName, email, field, proffession,experties}
+
   return (
   <div>
     <Grid  container xs={12} sm={8} md={6}  >
