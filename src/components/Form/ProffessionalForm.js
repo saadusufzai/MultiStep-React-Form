@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     width: "95%",
     margin:'0 auto',
     paddingTop: "2%",
-    paddingBottom: "1%",
+    paddingBottom: "2%",
   },
   input: {
     padding: "10px",

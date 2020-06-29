@@ -12,7 +12,7 @@ import ConfirmForm from "../Form/ConfirmForm";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    paddingTop: theme.spacing(10),
+    paddingTop: theme.spacing(7),
   },
   backButton: {
     marginRight: theme.spacing(1),
@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   btn: {
     textAlign: "center",
     marginTop: "20px",
+    
   },
   btnLast: {
    
@@ -44,7 +45,7 @@ function getSteps() {
   ];
 }
 
-export default function Steper({ handleChange, values }) {
+export default function Steper({ handleChange, values , resetState }) {
   function getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
@@ -91,6 +92,7 @@ export default function Steper({ handleChange, values }) {
   };
 
   const handleReset = () => {
+    resetState()
     setActiveStep(0);
   };
 
@@ -111,7 +113,8 @@ export default function Steper({ handleChange, values }) {
               align="center"
               className={classes.instructions}
             >
-              Your form has been submitted thanks for your time
+             <br/> FORM SUBMITTED <br/><br/> THANK YOU <br/>
+              
             </Typography>
             <Button
               
