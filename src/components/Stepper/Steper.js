@@ -9,6 +9,7 @@ import PersonalForm from '../Form/PersonalForm';
 import ProffessionalForm from '../Form/ProffessionalForm';
 import ConfirmForm from '../Form/ConfirmForm';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -43,7 +44,7 @@ function getStepContent(stepIndex) {
     case 2:
       return <ConfirmForm/>;
     default:
-      return 'Unknown stepIndex';
+      return 'Wrong Step';
   }
 }
 
@@ -76,8 +77,8 @@ export default function HorizontalLabelPositionBelowStepper() {
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Typography className={classes.instructions}>All steps completed</Typography>
-            <Button onClick={handleReset}>Reset</Button>
+            <Typography variant='h4' align='center' className={classes.instructions}>Your form has been submitted thanks for your time</Typography>
+            <Button onClick={handleReset}>Resubmit</Button>
           </div>
         ) : (
           <div>

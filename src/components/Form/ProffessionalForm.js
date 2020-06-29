@@ -15,8 +15,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "40%",
-    margin: "0 auto",
+    
     paddingBottom: "4%",
   },
   input: {
@@ -57,9 +56,9 @@ export default function ProffessionalForm() {
             <FormControlLabel value="Pro" control={<Radio />} label="Pro" />
           </RadioGroup>
           <RadioGroup color="primary" row>
-              <FormControlLabel color="secondary"  value='FrontEnd' control={<Radio/>} label='Front End' /> 
-              <FormControlLabel value='BackEnd' control={<Radio/>} label='Back End'/> 
-              <FormControlLabel value='FullStack' control={<Radio/>} label='Full Stack' /> 
+              <FormControlLabel value='FrontEnd'  control={<Radio  color="primary"/>} label='Front End' /> 
+              <FormControlLabel value='BackEnd'   control={<Radio  color="primary"/>} label='Back End'/> 
+              <FormControlLabel value='FullStack' control={<Radio  color="primary"/>} label='Full Stack' /> 
           </RadioGroup>
         </FormControl>
       </Container>

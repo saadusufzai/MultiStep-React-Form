@@ -24,7 +24,7 @@ export default function Header() {
     
      <AppBar className={styles.navBar} color='primary' >
        <Toolbar variant='dense'>
-         <Typography align='center'  variant='h6'>Form</Typography>
+         <Typography align='center'  variant='h6'>Multi Step React Form </Typography>
        </Toolbar>
       </AppBar>
      
