@@ -1,4 +1,5 @@
 # This is a basic workflow to help you get started with Actions
+# This is a basic workflow to help you get started with Actions
 
 name: Deploying Repo on surge
 
@@ -30,13 +31,16 @@ jobs:
 
     # Runs a set of commands using the runners
     - name: GitHub Action for Yarn
-      uses: borales/actions-yarn@v2.0.0
+      uses: borales/actions-yarn@v2.3.0
+       
+# will run build
     
     - name: Yarn Build
       run: yarn build
     
-    - name: Installing Surge
-    - run: npm install -g surge
+    - name: installing Surge
+      run: npm install -g surge
+      
     
     - name: deploying build to surge
       run: surge ./build multi-step-react-form.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
