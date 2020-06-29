@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import FormControl from "@material-ui/core/FormControl";
 import { Container, TextField, Paper, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -14,28 +14,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PersonalForm() {
+export default function PersonalForm({handleChange, values} ) {
   const styles = useStyles();
-  const [data, setData] = useState({
-    firstName:'',
-    lastName:'',
-    email:'',
-    field:'',
-    proffession:'',
-    experties:''
+  // const value = {values:{ firstName, lastName, email,}}
 
-  })
-
+console.log(values.firstName)
   return (
     <Paper elevation={9} className={styles.root}>
       <Container>
         <FormControl fullWidth variant="filled">
           <TextField
             className={styles.input}
-            label="Name"
+            label="First Name"
             type="text"
+            name='firstName'
             required
-            onChange={handelChange = (e)=>e.target.value}
+            onChange={handleChange('firstName')}
+            defaultValue={values.firstName}
+            
+           
           />
 
           <TextField
@@ -43,6 +40,8 @@ export default function PersonalForm() {
             label="Last Name"
             type="text"
             required
+            onChange={handleChange('lastName')}
+            defaultValue={values.lastName}
           />
 
           <TextField
@@ -50,6 +49,9 @@ export default function PersonalForm() {
             label="Email Address"
             type="Email"
             required
+
+            onChange={handleChange('email')}
+            defaultValue={values.email}
           />
         </FormControl>
       </Container>

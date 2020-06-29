@@ -35,29 +35,36 @@ function getSteps() {
   return ['Enter Personal Data', 'Enter Proffessional Data', 'Confirm and Finish'];
 }
 
-function getStepContent(stepIndex) {
-  switch (stepIndex) {
-    case 0:
-      return <PersonalForm/>;
-    case 1:
-      return <ProffessionalForm/>;
-    case 2:
-      return <ConfirmForm/>;
-    default:
-      return 'Wrong Step';
-  }
-}
 
-export default function HorizontalLabelPositionBelowStepper() {
+
+export default function Steper({handleChange , values}) {
+
+  function getStepContent(stepIndex) {
+    switch (stepIndex) {
+      case 0:
+        return <PersonalForm handleChange={handleChange} values={values}/>;
+      case 1:
+        return <ProffessionalForm/>;
+      case 2:
+        return <ConfirmForm/>;
+      default:
+        return 'Wrong Step';
+    }
+  }
+
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
 
-  const handleNext = () => {
+ 
+  const handleNext = (e) => {
+    e.preventDefault()
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    
   };
 
-  const handleBack = () => {
+  const handleBack = (e) => {
+    e.preventDefault()
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
