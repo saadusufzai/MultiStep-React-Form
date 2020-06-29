@@ -10,13 +10,14 @@ function App() {
     lastName:'',
     email:'',
     field:'',
-    proffession:'',
-    experties:''
+    profession:'',
+    experience:'',
+    stage:''
 
   })
 
- const handleChange = (input) => e => {
-    setData({ [input]: e.target.value });
+ let handleChange = input => e => {
+    setData({...data, [input]: e.target.value });
   };
 
   const  { firstName, lastName, email, field, proffession,experties} = data
@@ -24,8 +25,8 @@ function App() {
   return (
   <div>
     <Grid  container xs={12} sm={8} md={6}  >
-    <Header />
-    <Steper handleChange={handleChange} values = {values} />
+      <Header />
+      <Steper handleChange={handleChange} values = {data} />
     </Grid>
   </div>
   );

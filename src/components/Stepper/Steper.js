@@ -1,19 +1,18 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import PersonalForm from '../Form/PersonalForm';
-import ProffessionalForm from '../Form/ProffessionalForm';
-import ConfirmForm from '../Form/ConfirmForm';
-
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Stepper from "@material-ui/core/Stepper";
+import Step from "@material-ui/core/Step";
+import StepLabel from "@material-ui/core/StepLabel";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import PersonalForm from "../Form/PersonalForm";
+import ProffessionalForm from "../Form/ProffessionalForm";
+import ConfirmForm from "../Form/ConfirmForm";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
-    paddingTop: theme.spacing(10)
+    width: "100%",
+    paddingTop: theme.spacing(10),
   },
   backButton: {
     marginRight: theme.spacing(1),
@@ -22,33 +21,52 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
   },
-  btn:{
-    textAlign:'center',
-    marginTop:'20px'
-},
-Button:{
-   
-}
+  btn: {
+    textAlign: "center",
+    marginTop: "20px",
+  },
+  btnLast: {
+    alignSelf: "center",
+  },
 }));
 
 function getSteps() {
-  return ['Enter Personal Data', 'Enter Proffessional Data', 'Confirm and Finish'];
+  return [
+    "Enter Personal Data",
+    "Enter Proffessional Data",
+    "Confirm and Finish",
+  ];
 }
 
-
-
-export default function Steper({handleChange , values}) {
-
+export default function Steper({ handleChange, values }) {
   function getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-        return <PersonalForm handleChange={handleChange} values={values}/>;
+        return (
+          <PersonalForm
+            handleChange={handleChange}
+            values={values}
+            step={activeStep}
+          />
+        );
       case 1:
-        return <ProffessionalForm/>;
+        return (
+          <ProffessionalForm
+            handleChange={handleChange}
+            values={values}
+            step={activeStep}
+          />
+        );
       case 2:
-        return <ConfirmForm/>;
+        return (
+          <ConfirmForm
+            handleChange={handleChange}
+            values={values}
+            step={activeStep}
+          />
+        );
       default:
-        return 'Wrong Step';
+        return "Wrong Step";
     }
   }
 
@@ -56,15 +74,13 @@ export default function Steper({handleChange , values}) {
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
 
- 
   const handleNext = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    
   };
 
   const handleBack = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
@@ -84,13 +100,27 @@ export default function Steper({handleChange , values}) {
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Typography variant='h4' align='center' className={classes.instructions}>Your form has been submitted thanks for your time</Typography>
-            <Button onClick={handleReset}>Resubmit</Button>
+            <Typography
+              variant="h4"
+              align="center"
+              className={classes.instructions}
+            >
+              Your form has been submitted thanks for your time
+            </Typography>
+            <Button
+              align="center"
+              className={classes.btnLast}
+              onClick={handleReset}
+            >
+              Resubmit
+            </Button>
           </div>
         ) : (
           <div>
-            <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-            <div className={classes.btn} >
+            <Typography className={classes.instructions}>
+              {getStepContent(activeStep)}
+            </Typography>
+            <div className={classes.btn}>
               <Button
                 disabled={activeStep === 0}
                 onClick={handleBack}
@@ -98,8 +128,13 @@ export default function Steper({handleChange , values}) {
               >
                 Back
               </Button>
-              <Button className={classes.Button} variant="contained" color="primary" onClick={handleNext}>
-                {activeStep === steps.length - 1 ? 'Finish' : 'Continue'}
+              <Button
+                className={classes.Button}
+                variant="contained"
+                color="primary"
+                onClick={handleNext}
+              >
+                {activeStep === steps.length - 1 ? "Finish" : "Continue"}
               </Button>
             </div>
           </div>
