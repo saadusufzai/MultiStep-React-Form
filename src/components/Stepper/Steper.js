@@ -26,7 +26,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "20px",
   },
   btnLast: {
-    alignSelf: "center",
+   
+    marginTop:'20px',
+    padding:'10px',
+    textAlign: "center",
+    width:'100%',
+    margin:'0 auto'
+    
   },
 }));
 
@@ -108,7 +114,7 @@ export default function Steper({ handleChange, values }) {
               Your form has been submitted thanks for your time
             </Typography>
             <Button
-              align="center"
+              
               className={classes.btnLast}
               onClick={handleReset}
             >
